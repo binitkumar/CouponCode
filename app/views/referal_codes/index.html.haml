@@ -1,0 +1,25 @@
+%h1 Listing referal_codes
+
+%table
+  %thead
+    %tr
+      %th Hashtag
+      %th Email
+      %th Code
+      %th
+      %th
+      %th
+
+  %tbody
+    - @referal_codes.each do |referal_code|
+      %tr
+        %td= referal_code.hashtag
+        %td= referal_code.email
+        %td= referal_code.code
+        %td= link_to 'Show', referal_code
+        %td= link_to 'Edit', edit_referal_code_path(referal_code)
+        %td= link_to 'Destroy', referal_code, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Referal code', new_referal_code_path

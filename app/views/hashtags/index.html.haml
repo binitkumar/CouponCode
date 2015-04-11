@@ -1,0 +1,23 @@
+%h1 My discount codes
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Code
+      %th Discount
+      %th Permalink url
+      %th
+      %th
+      %th
+
+  %tbody
+    - @hashtags.each do |hashtag|
+      %tr
+        %td= hashtag.discount_code
+        %td= hashtag.discount
+        %td= hashtag.permalink_url
+        %td= link_to 'Show', hashtag
+        %td= link_to 'Edit', edit_hashtag_path(hashtag)
+        %td= link_to 'Destroy', hashtag, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br

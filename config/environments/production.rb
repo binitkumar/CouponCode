@@ -74,5 +74,16 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
+   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.gmail.com",
+    :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => "bintech06@gmail.com",
+    :password  => "kaushal", # SMTP password is any valid API key
+    :authentication => 'plain', # Mandrill supports 'plain' or 'login'
+    :domain => 'ryanjwitt.com', # your domain to identify your server when connecting
+  }
+  config.action_mailer.default_url_options = { :host => "clientservices.ryanjwitt.com" }
 end
