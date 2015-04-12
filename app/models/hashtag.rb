@@ -1,5 +1,6 @@
 class Hashtag < ActiveRecord::Base
   belongs_to :user
+  has_many :referal_codes
 
   #before_create :create_unique_identifier
 

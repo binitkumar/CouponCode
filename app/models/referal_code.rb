@@ -15,6 +15,9 @@ class ReferalCode < ActiveRecord::Base
 
   def validate_discount_code
     related_hashtag = Hashtag.where(discount_code: self.discount_code).first
-    errors.add(:discount_code, "in invalid") unless related_hashtag || related_hashtag.referal_codes.length > related_hashtag.no_of_referal
+    errors.add(:discount_code, "is invalid") unless related_hashtag 
+    if related_hashtag
+      errors.add(:discount_code, "is invalid") if related_hashtag.referal_codes.length > related_hashtag.no_of_referal
+    end
   end
 end
