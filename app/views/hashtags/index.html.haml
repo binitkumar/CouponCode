@@ -6,6 +6,8 @@
       %th Code
       %th Discount
       %th Permalink url
+      %th No of referal
+      %th No of referal generated
       %th
       %th
       %th
@@ -16,6 +18,8 @@
         %td= hashtag.discount_code
         %td= hashtag.discount
         %td= hashtag.permalink_url
+        %td= hashtag.no_of_referal
+        %td= hashtag.referal_codes.count
         %td= link_to 'Show', hashtag
         %td= link_to 'Edit', edit_hashtag_path(hashtag)
         %td= link_to 'Destroy', hashtag, :method => :delete, :data => { :confirm => 'Are you sure?' }
