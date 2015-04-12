@@ -29,7 +29,7 @@ class ReferalCodesController < ApplicationController
   end
 
   def create
-    @referal_code = ReferalCode.new(referal_code_params)
+    @referal_code = ReferalCode.new(referal_code_params)    
     @referal_code.save
     respond_with(@referal_code)
   end
