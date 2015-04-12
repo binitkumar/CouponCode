@@ -1,9 +1,12 @@
 %p#notice= notice
 
-%p
+.row
+  .col-md-6.col-md-offset-3
+    = image_tag @hashtag.user.logo.url, style: 'width: 300px; height: 300px;'
+.row
   %b Discount:
   = @hashtag.discount
-%p
+.row
   %b Permalink url:
   = @hashtag.permalink_url
 

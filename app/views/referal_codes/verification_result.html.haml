@@ -1,3 +1,7 @@
+.row
+  .col-md-6.col-md-offset-3
+    = image_tag @referal_code.hashtag.user.logo.url, style: 'width: 300px; height: 300px;'
+
 - if @referal_code
   Code is valid. Customer is eligible for #{@referal_code.hashtag.discount} discount.
 - else
