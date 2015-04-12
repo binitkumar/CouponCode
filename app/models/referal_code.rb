@@ -2,7 +2,7 @@ class ReferalCode < ActiveRecord::Base
   belongs_to :hashtag
 
   validate :validate_discount_code
-  after_create :create_unique_identifier
+  before_create :create_unique_identifier
 
   def create_unique_identifier
     begin
@@ -13,6 +13,7 @@ class ReferalCode < ActiveRecord::Base
   end
 
   def validate_discount_code
-    errors.add(:discount_code, "in invalid") if Hashtag.where(discount_code: self.discount_code).length == 0
+    related_hashtag = Hashtag.where(discount_code: self.discount_code).first
+    errors.add(:discount_code, "in invalid") unless related_hashtag || related_hashtag.referal_codes.length > related_hashtag.no_of_referal
   end
 end
