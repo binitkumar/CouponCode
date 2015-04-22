@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'referal_codes#new'
+  get '/:id' => 'referal_codes#new', id: :id
 end

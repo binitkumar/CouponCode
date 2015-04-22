@@ -8,7 +8,7 @@ class Ability
       can :manage, Hashtag, user_id: user.id
       can :manage, Staff, owner_id: user.id
       can :verfiy, ReferalCode
-      can :create, ReferalCode
+      can :manage, ReferalCode
     elsif user.staff?
       can :read, Hashtag 
       can :verfiy, ReferalCode

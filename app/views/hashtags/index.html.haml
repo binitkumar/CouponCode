@@ -8,6 +8,7 @@
       %th Authorized persons
       %th Permalink url
       %th No of referal
+      %th Max referal per person
       %th No of referal generated
       %th Is active
       %th
@@ -25,6 +26,7 @@
               %li= usr.full_name
         %td= hashtag.permalink_url
         %td= hashtag.no_of_referal
+        %td= hashtag.max_referal_per_person
         %td= hashtag.referal_codes.count
         %td= hashtag.is_active
         %td= link_to 'Show', hashtag

@@ -9,7 +9,7 @@ class Hashtag < ActiveRecord::Base
   validates_uniqueness_of :discount_code
   validates_presence_of :discount_code
 
-  validates_presence_of :no_of_referal
+  validates_presence_of :no_of_referal, :max_referal_per_person
   #def create_unique_identifier
   #  begin
   #    self.discount_code = SecureRandom.hex(8) # or whatever you chose like UUID tools

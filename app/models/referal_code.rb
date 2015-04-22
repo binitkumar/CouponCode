@@ -6,7 +6,7 @@ class ReferalCode < ActiveRecord::Base
 
   before_create :create_unique_identifier
   
-  attr_accessor :provider_email, :first_name, :last_name
+  attr_accessor :provider_email
 
   def full_name
     "#{first_name} #{last_name}"
@@ -36,7 +36,9 @@ class ReferalCode < ActiveRecord::Base
     
     if related_hashtag && self.full_name
       errors.add(:first_name, "is invalid") unless related_hashtag.authorized_emails.collect(&:full_name).include?(self.full_name)    
-      errors.add(:last_name, "is invalid") unless related_hashtag.authorized_emails.collect(&:full_name).include?(self.full_name)    
+      errors.add(:last_name, "is invalid") unless related_hashtag.authorized_emails.collect(&:full_name).include?(self.full_name)   
+
+      errors.add(:first_name, "user quota exceeded") if related_hashtag.referal_codes.collect(&:full_name).count(self.full_name) > related_hashtag.max_referal_per_person
     end
   end
 end

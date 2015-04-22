@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422100325) do
+ActiveRecord::Schema.define(version: 20150422192134) do
 
   create_table "authorized_emails", force: true do |t|
     t.integer  "hashtag_id"
@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(version: 20150422100325) do
     t.string   "discount_code"
     t.integer  "no_of_referal"
     t.string   "authorized_email"
-    t.boolean  "is_active",        default: true
+    t.boolean  "is_active",              default: true
+    t.integer  "max_referal_per_person"
   end
 
   add_index "hashtags", ["user_id"], name: "index_hashtags_on_user_id", using: :btree
@@ -45,6 +46,8 @@ ActiveRecord::Schema.define(version: 20150422100325) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "discount_code"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "referal_codes", ["hashtag_id"], name: "index_referal_codes_on_hashtag_id", using: :btree

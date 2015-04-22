@@ -23,6 +23,10 @@ class ReferalCodesController < ApplicationController
 
   def new
     @referal_code = ReferalCode.new
+    if params[:id]
+      @hashtag = Hashtag.find_by_discount_code params[:id]
+      @referal_code.discount_code = @hashtag.discount_code if @hashtag
+    end
     respond_with(@referal_code)
   end
 
