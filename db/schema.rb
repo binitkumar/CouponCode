@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422075853) do
+ActiveRecord::Schema.define(version: 20150422100325) do
 
   create_table "authorized_emails", force: true do |t|
     t.integer  "hashtag_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150422075853) do
     t.string   "discount_code"
     t.integer  "no_of_referal"
     t.string   "authorized_email"
+    t.boolean  "is_active",        default: true
   end
 
   add_index "hashtags", ["user_id"], name: "index_hashtags_on_user_id", using: :btree

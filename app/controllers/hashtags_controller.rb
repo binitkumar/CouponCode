@@ -49,7 +49,7 @@ class HashtagsController < ApplicationController
     end
 
     def hashtag_params
-      params.require(:hashtag).permit(:user_id, :discount, :permalink_url, :discount_code, 
+      params.require(:hashtag).permit(:user_id, :discount, :permalink_url, :discount_code, :is_active, 
         :no_of_referal, authorized_emails_attributes: [:id, :email, :_destroy, :first_name, :last_name]
       )
     end
