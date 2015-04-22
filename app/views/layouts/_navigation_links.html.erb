@@ -1,8 +1,9 @@
   <li><%= link_to "Generate referal code", new_referal_code_path %></li>
-  <li><%= link_to "Verify referal code", verify_referal_codes_path %></li>
+  <li><%= link_to "Verify referal code", verify_referal_codes_path if can? :verify, ReferalCode %></li>
   <% if current_user %>
-    <li><%= link_to "Add code", new_hashtag_path %></li>
-    <li><%= link_to "Hashtags", hashtags_path %></li>
+    <li><%= link_to "Add code", new_hashtag_path if can? :create, Hashtag %></li>
+    <li><%= link_to "Staffs", staffs_path if can? :read, Staff %></li>
+    <li><%= link_to "Hashtags", hashtags_path if can? :read, Hashtag %></li>
     <li><%= link_to "Edit profile", edit_user_registration_path %></li>
     <li><%= link_to "Sign out", destroy_user_session_path, method: :delete%></li>
   <% else %>

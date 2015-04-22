@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Owner:
+  = @staff.owner.email
+%p
+  %b User:
+  = @staff.user.email
+%p
+  %b First name:
+  = @staff.first_name
+%p
+  %b Last name:
+  = @staff.last_name
+
+= link_to 'Edit', edit_staff_path(@staff)
+\|
+= link_to 'Back', staffs_path

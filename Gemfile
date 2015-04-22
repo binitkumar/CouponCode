@@ -29,6 +29,8 @@ group :development do
   gem 'rails_layout'
 end
 gem 'devise'
+gem 'devise_invitable', '~> 1.3.4'
 gem 'therubyracer'
 gem 'paperclip'
 gem "nested_form"
+gem 'cancancan', '~> 1.10'

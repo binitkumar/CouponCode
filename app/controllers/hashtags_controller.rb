@@ -1,5 +1,6 @@
 class HashtagsController < ApplicationController
-  before_action :set_hashtag, only: [:show, :edit, :update, :destroy]
+  #before_action :set_hashtag, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   respond_to :html
 
@@ -8,7 +9,8 @@ class HashtagsController < ApplicationController
   end
 
   def index
-    @hashtags = current_user.hashtags
+    @hashtags = current_user.hashtags if current_user.admin?
+    @hashtags = current_user.associated_staff.owner.hashtags if current_user.staff? && current_user.associated_staff
     respond_with(@hashtags)
   end
 

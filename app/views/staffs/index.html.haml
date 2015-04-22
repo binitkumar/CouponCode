@@ -1,0 +1,28 @@
+%h1 Listing staffs
+
+.pull-right= link_to 'New Staff', new_staff_path, class: 'btn btn-success'
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Owner
+      %th User
+      %th First name
+      %th Last name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @staffs.each do |staff|
+      %tr
+        %td= staff.owner.email
+        %td= staff.user.email
+        %td= staff.first_name
+        %td= staff.last_name
+        %td= link_to 'Show', staff
+        %td= link_to 'Edit', edit_staff_path(staff)
+        %td= link_to 'Destroy', staff, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+

@@ -1,5 +1,6 @@
 class ReferalCodesController < ApplicationController
-  before_action :set_referal_code, only: [:show, :edit, :update, :destroy]
+  #before_action :set_referal_code, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   respond_to :html
 
