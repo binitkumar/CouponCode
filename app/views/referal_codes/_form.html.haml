@@ -4,11 +4,11 @@
   .form-inputs
     .row
       .col-md-12
-        = f.input :first_name, label: 'Name'
+        = f.input :first_name, label: "Referral's Name"
       /.col-md-6
       /  = f.input :last_name
-    = f.input :email
-    = f.input :discount_code
+    = f.input :email, label: "Your email"
+    = f.input :discount_code, label: "Hashtag your friend shared"
 
   .form-actions
     = f.button :submit, "Generate"
