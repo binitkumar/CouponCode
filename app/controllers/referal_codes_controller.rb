@@ -50,6 +50,6 @@ class ReferalCodesController < ApplicationController
     end
 
     def referal_code_params
-      params.require(:referal_code).permit(:hashtag_id, :email, :code, :discount_code)
+      params.require(:referal_code).permit(:hashtag_id, :email, :code, :discount_code, :provider_email)
     end
 end

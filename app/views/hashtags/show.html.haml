@@ -7,8 +7,14 @@
   %b Discount:
   = @hashtag.discount
 .row
-  %b Permalink url:
-  = @hashtag.permalink_url
+  %b Discount code:
+  = @hashtag.discount_code
+.row
+  %b Authorized email:
+  = @hashtag.authorized_email
+.row
+  %b No of referals:
+  = @hashtag.no_of_referal
 
 = link_to 'Edit', edit_hashtag_path(@hashtag)
 \|
