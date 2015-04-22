@@ -42,7 +42,7 @@ Rails.application.configure do
     :user_name => "bintech06@gmail.com",
     :password  => "kaushal", # SMTP password is any valid API key
     :authentication => 'plain', # Mandrill supports 'plain' or 'login'
-    :domain => 'ryanjwitt.com', # your domain to identify your server when connecting
+    :domain => 'refer.life', # your domain to identify your server when connecting
   }
-  config.action_mailer.default_url_options = { :host => "clientservices.ryanjwitt.com" }
+  config.action_mailer.default_url_options = { :host => "refer.life" }
 end
