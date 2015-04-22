@@ -3,9 +3,19 @@
 
   .form-inputs
     = f.input :discount
-    = f.input :discount_code
-    = f.input :authorized_email
+    = f.input :discount_code    
     = f.input :no_of_referal
+    .authorized_emails
+      = f.fields_for :authorized_emails do |authorized_email_form|
+        .nested-fields
+          .col-md-6
+            = f.input :first_name
+          .col-md-6
+            = f.input :last_name
+          .pull-right
+            = link_to_remove_association "Remove user", f
+      .links
+        = link_to_add_association "Add new email", f, :authorized_emails
 
   .form-actions
     = f.button :submit, "Generate code"

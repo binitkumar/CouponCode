@@ -12,7 +12,8 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'mysql2'
-gem 'simple_form'
+gem 'simple_form', git: "https://github.com/plataformatec/simple_form"
+gem 'cocoon'
 gem 'thin'
 group :development do
   gem 'better_errors'
@@ -30,3 +31,4 @@ end
 gem 'devise'
 gem 'therubyracer'
 gem 'paperclip'
+gem "nested_form"

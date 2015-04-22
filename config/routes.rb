@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :authorized_emails
+
   resources :referal_codes do
     collection do
       get :verify

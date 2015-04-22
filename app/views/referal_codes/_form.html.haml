@@ -2,7 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :provider_email
+    .row
+      .col-md-6
+        = f.input :first_name
+      .col-md-6
+        = f.input :last_name
     = f.input :email
     = f.input :discount_code
 

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Hashtag:
+  = @authorized_email.hashtag
+%p
+  %b Email:
+  = @authorized_email.email
+
+= link_to 'Edit', edit_authorized_email_path(@authorized_email)
+\|
+= link_to 'Back', authorized_emails_path

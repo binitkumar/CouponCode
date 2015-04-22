@@ -1,0 +1,9 @@
+= simple_form_for(@authorized_email) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :hashtag
+    = f.input :email
+
+  .form-actions
+    = f.button :submit

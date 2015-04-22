@@ -6,7 +6,11 @@ class ReferalCode < ActiveRecord::Base
 
   before_create :create_unique_identifier
   
-  attr_accessor :provider_email
+  attr_accessor :provider_email, :first_name, :last_name
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
   def create_unique_identifier
     self.hashtag = Hashtag.where(discount_code: self.discount_code).first
@@ -27,6 +31,11 @@ class ReferalCode < ActiveRecord::Base
 
   def validate_provider_email
     related_hashtag = Hashtag.where(discount_code: self.discount_code).first
-    errors.add(:provider_email, "is invalid") if related_hashtag && self.provider_email && self.provider_email != related_hashtag.authorized_email    
+    errors.all(:discount_code, "is invalid") unless related_hashtag
+    
+    if related_hashtag && self.full_name
+      errors.add(:first_name, "is invalid") unless related_hashtag.authorized_emails.collect(&:full_name).include?(self.full_name)    
+      errors.add(:last_name, "is invalid") unless related_hashtag.authorized_emails.collect(&:full_name).include?(self.full_name)    
+    end
   end
 end

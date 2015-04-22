@@ -1,0 +1,9 @@
+.nested-fields
+  .row
+    .col-md-6
+      = f.input :first_name
+    .col-md-6
+      = f.input :last_name
+    .pull-right
+      = link_to_remove_association "Remove user", f
+    %br/

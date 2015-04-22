@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422034647) do
+ActiveRecord::Schema.define(version: 20150422053647) do
+
+  create_table "authorized_emails", force: true do |t|
+    t.integer  "hashtag_id"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+  end
+
+  add_index "authorized_emails", ["hashtag_id"], name: "index_authorized_emails_on_hashtag_id", using: :btree
 
   create_table "hashtags", force: true do |t|
     t.integer  "user_id"

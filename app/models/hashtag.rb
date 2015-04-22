@@ -1,7 +1,9 @@
 class Hashtag < ActiveRecord::Base
   belongs_to :user
   has_many :referal_codes
+  has_many :authorized_emails
 
+  accepts_nested_attributes_for :authorized_emails, allow_destroy: true
   #before_create :create_unique_identifier
 
   validates_uniqueness_of :discount_code

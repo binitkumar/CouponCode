@@ -10,8 +10,10 @@
   %b Discount code:
   = @hashtag.discount_code
 .row
-  %b Authorized email:
-  = @hashtag.authorized_email
+  %b Authorized users:
+  %ul
+    - @hashtag.authorized_emails.each do |usr|
+      %li= usr.full_name
 .row
   %b No of referals:
   = @hashtag.no_of_referal

@@ -1,0 +1,23 @@
+%h1 Listing authorized_emails
+
+%table
+  %thead
+    %tr
+      %th Hashtag
+      %th Email
+      %th
+      %th
+      %th
+
+  %tbody
+    - @authorized_emails.each do |authorized_email|
+      %tr
+        %td= authorized_email.hashtag
+        %td= authorized_email.email
+        %td= link_to 'Show', authorized_email
+        %td= link_to 'Edit', edit_authorized_email_path(authorized_email)
+        %td= link_to 'Destroy', authorized_email, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Authorized email', new_authorized_email_path
