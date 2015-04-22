@@ -10,10 +10,10 @@
       = f.fields_for :authorized_emails do |authorized_email_form|
         .nested-fields
           .row
-            .col-md-6
-              = authorized_email_form.input :first_name
-            .col-md-6
-              = authorized_email_form.input :last_name
+            .col-md-12
+              = authorized_email_form.input :first_name, label: 'Name'
+            /.col-md-6
+            /  = authorized_email_form.input :last_name
             .pull-right
               = link_to_remove_association "Remove user", f
       .links

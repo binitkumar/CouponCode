@@ -1,9 +1,9 @@
 .nested-fields
   .row
-    .col-md-6
-      = f.input :first_name
-    .col-md-6
-      = f.input :last_name
+    .col-md-12
+      = f.input :first_name, label: 'Name'
+    /.col-md-6
+    /  = f.input :last_name
     .pull-right
       = link_to_remove_association "Remove user", f
     %br/
