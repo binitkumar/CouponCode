@@ -9,12 +9,13 @@
     .authorized_emails
       = f.fields_for :authorized_emails do |authorized_email_form|
         .nested-fields
-          .col-md-6
-            = authorized_email_form.input :first_name
-          .col-md-6
-            = authorized_email_form.input :last_name
-          .pull-right
-            = link_to_remove_association "Remove user", f
+          .row
+            .col-md-6
+              = authorized_email_form.input :first_name
+            .col-md-6
+              = authorized_email_form.input :last_name
+            .pull-right
+              = link_to_remove_association "Remove user", f
       .links
         = link_to_add_association "Add new email", f, :authorized_emails
 
